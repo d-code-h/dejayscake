@@ -4,7 +4,6 @@ const 	createError 	= 	require('http-errors'),
 		cookieParser 	= 	require('cookie-parser'),
 		logger 			= 	require('morgan'),
 		bodyParser 		= 	require('body-parser'),
-		flash			=	require('connect-flash'),
 		indexRouter 	= 	require('./routes/index'),
 // const usersRouter = require('./routes/users');
 		app 			= 	express();
@@ -20,7 +19,6 @@ app.use(bodyParser.urlencoded({extended: true}));       // bodyParser
 // app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(flash());                                       // flash
 
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);

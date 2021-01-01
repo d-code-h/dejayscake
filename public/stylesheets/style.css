@@ -3153,3 +3153,8 @@ a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-prima
   font-weight: bold;
   letter-spacing: 2px;
 }
+
+img.resize{
+  width: 100%;
+  height: 250px;
+}
