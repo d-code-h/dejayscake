@@ -111,7 +111,7 @@
 	});
 
 	// Venobox Setup
-	$(window).on('load', function() {
+	jQuery(window).on('load', function(){
 	    var portfolioIsotope = $('.portfolio-container').isotope({
 	      itemSelector: '.portfolio-item',
 	      layoutMode: 'fitRows'
