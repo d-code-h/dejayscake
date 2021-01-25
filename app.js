@@ -5,13 +5,13 @@ const 	createError 	= 	require('http-errors'),
 		logger 			= 	require('morgan'),
 		bodyParser 		= 	require('body-parser'),
     indexRouter 	= 	require('./routes/index'),
-    env         = require("dotenv").config(),
+    // env         = require("dotenv").config(),
 		app 			= 	express();
 
-    if (env.error){
-      throw env.error;
-    }
-    console.log(env.parsed);
+    // if (env.error){
+    //   throw env.error;
+    // }
+    // console.log(env.parsed);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
