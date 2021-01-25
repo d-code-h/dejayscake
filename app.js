@@ -4,10 +4,14 @@ const 	createError 	= 	require('http-errors'),
 		cookieParser 	= 	require('cookie-parser'),
 		logger 			= 	require('morgan'),
 		bodyParser 		= 	require('body-parser'),
-		indexRouter 	= 	require('./routes/index'),
-// const usersRouter = require('./routes/users');
+    indexRouter 	= 	require('./routes/index'),
+    env         = require("dotenv").config(),
 		app 			= 	express();
 
+    if (env.error){
+      throw env.error;
+    }
+    console.log(env.parsed);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,12 +20,10 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));       // bodyParser
-// app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

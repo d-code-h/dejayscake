@@ -15,17 +15,16 @@ router.post('/', function(req, res){
 		res.redirect('/#contact-form');
 	}else{
 		let transport = nodemailer.createTransport({
-		    host: 'smtp.mailtrap.io',
-		    port: 2525,
+		    service: 'gmail',
 		    auth: {
-		       user: '268673188a457d',
-		       pass: 'ab5215b0977a5b'
+				user: process.env.EMAIL_USERNAME,
+		       	pass: process.env.EMAIL_PASSWORD
 		    }
 		});
 		const mail = {
-	    from: email, // Sender address
-	    to: 'to@email.com',         // List of recipients
-	    subject: name, // Subject line
+	    from: process.env.EMAIL_USERNAME, // Sender address
+	    to: process.env.EMAIL_USERNAME,         // List of recipients
+	    subject: name + " - " + email, // Subject line
 	    text: message // Plain text body
 		};
 		transport.sendMail(mail, function(err, info) {
